@@ -4,6 +4,9 @@ import { FaGithub, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import logo from '../assets/loginLogo.jpeg'
+import image from '../assets/login.jpg'
+
 
 const Login = () => {
     const { userLogin, googleLogin, gitHubLogin } = useContext(AuthContext);
@@ -83,10 +86,13 @@ const Login = () => {
             <div className="hero  min-h-screen mt-20">
                 <div className=" flex-col ">
                     <div className="text-center ">
-                        <h1 className="lg:text-5xl font-bold">Login now!</h1>
+                        <img className="mx-auto" src={logo} alt="" />
                     </div>
-                    <div className="w-full mt-4 lg:mt-10 lg:w-[800px] mx-auto bg-base-100">
-                        <form onSubmit={handleSubmit} className="rounded-lg card-body bg-gradient-to-r from-[#f5d3d0] to-[#f29c94] border">
+                    <div className="w-full lg:w-[1200px] lg:flex mt-4 lg:mt-10  mx-auto bg-base-100">
+                       <div>
+                            <img className=" lg:w-[640px]" src={image} alt="" />
+                       </div>
+                        <form onSubmit={handleSubmit} className="rounded-lg card-body bg-gradient-to-r from-[#d4e09b] to-[#c4f1be] border">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-xl">Email</span>
@@ -102,7 +108,7 @@ const Login = () => {
                                     name="password"
                                     placeholder="password"
                                     className="input input-bordered" required />
-                                <span className="absolute ml-48 mt-14 lg:ml-[660px]" onClick={() => setShowPassword(!showPassword)}>
+                                <span className="absolute ml-48 mt-14 lg:ml-[250px]" onClick={() => setShowPassword(!showPassword)}>
 
                                     {
                                         showPassword ? <FaRegEye size={30}></FaRegEye> :
