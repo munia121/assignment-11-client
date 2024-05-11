@@ -9,6 +9,7 @@ import Register from "../Pages/Register";
 import CategoryPage from "../Pages/Home/Category/CategoryPage";
 import CategoryDetails from "../Pages/Home/Category/CategoryDetails";
 import PrivetRoute from "./PrivetRoute";
+import UpdatePage from "../Pages/AllBook/UpdatePage";
 
 export const router = createBrowserRouter([
     {
@@ -21,11 +22,13 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/addBook',
-                element:<PrivetRoute><AddBook></AddBook></PrivetRoute>
+                element:<PrivetRoute><AddBook></AddBook></PrivetRoute>,
+                
             },
             {
                 path:'/allBooks',
-                element:<PrivetRoute><AllBook></AllBook></PrivetRoute>
+                element:<PrivetRoute><AllBook></AllBook></PrivetRoute>,
+                loader: () => fetch('http://localhost:5000/allBooks')
             },
             {
                 path:'/borrowedBook',
@@ -48,6 +51,10 @@ export const router = createBrowserRouter([
                 path:'/details/:id',
                 element:<CategoryDetails></CategoryDetails>,
                 // loader:({param}) => fetch(`http://localhost:5000/bookDetails/${param.id}`)
+            },
+            {
+                path:'/update/:id',
+                element:<UpdatePage></UpdatePage>
             }
         ]
     },
