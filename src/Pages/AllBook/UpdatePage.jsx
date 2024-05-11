@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 import image from '../../assets/cover.jpg'
@@ -7,30 +7,50 @@ import image from '../../assets/cover.jpg'
 
 const UpdatePage = () => {
     const book = useLoaderData()
-    // console.log(book)
-    // eslint-disable-next-line no-unused-vars
-    const { _id, photo, description, name, author, category, ratings, quantity } = book;
-    // eslint-disable-next-line no-unused-vars
-    const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
+    
+    const { _id, photo, name, author, ratings } = book;
+    
 
     const handlerAddBook = (event) => {
         event.preventDefault()
         const form = event.target;
-
         const name = form.name.value;
-        const category = form.category.value;
-        // const quantity = parseInt(form.quantity.value);
-        const ratings = parseFloat(form.ratings.value);
-        // const description = form.description.value;
+        const category = form.category.value;        
+        const ratings = parseFloat(form.ratings.value)
         const author = form.author.value
 
         // const email = user.email;
         // const userName = user.displayName;
         // const photo = form.photo.value;
 
-        const addBook = { name, category,  ratings, author, photo }
-        console.log(addBook)
+        const updateBook = { name, category,  ratings, author, photo }
+        console.log(updateBook)
 
+
+        fetch(`http://localhost:5000/updateBook/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateBook)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount) {
+                    form.reset()
+                    navigate('/allBooks')
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Data Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+
+            })
         
 
         
