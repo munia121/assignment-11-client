@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 
-import { FaRegStar } from "react-icons/fa";
+// import { FaRegStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 const SingleCategoryCard = ({ book }) => {
 
+    // eslint-disable-next-line no-unused-vars
     const { _id, photo, description, name, author, category, ratings } = book;
 
 
