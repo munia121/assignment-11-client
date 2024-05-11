@@ -54,7 +54,8 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/update/:id',
-                element:<UpdatePage></UpdatePage>
+                element:<UpdatePage></UpdatePage>,
+                loader:({params}) => fetch(`http://localhost:5000/bookDetails/${params.id}`)
             }
         ]
     },
