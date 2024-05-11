@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 // import Swal fromBook1rt2";
 import image from '../../assets/cover.jpg'
+import Swal from "sweetalert2";
 
 const AddBook = () => {
     const { user } = useContext(AuthContext)
@@ -12,8 +13,8 @@ const AddBook = () => {
 
         const name = form.name.value;
         const category = form.category.value;
-        const quantity = form.quantity.value;
-        const ratings = form.ratings.value;
+        const quantity =parseInt(form.quantity.value);
+        const ratings = parseFloat(form.ratings.value);
         const description = form.description.value;
         const author = form.author.value
 
@@ -37,15 +38,15 @@ const AddBook = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            // if (data.insertedId) {
-            //     form.reset()
-            //     Swal.fire({
-            //         title: 'Success',
-            //         text: 'Data Added Successfully',
-            //         icon: 'success',
-            //         confirmButtonText: 'Ok'
-            //     })
-            // }
+            if (data.insertedId) {
+                form.reset()
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Data Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+            }
 
         })
     }
@@ -86,13 +87,10 @@ const AddBook = () => {
                                 {/* Dropdown menu */}
                                 <select className='w-full px-3 h-12 border border-[#f29c94] rounded-lg' name='category' value={selectCategory} onChange={handleCategory}>
                                     <option className='w-50' value="">Select...</option>
-                                    <option value="Book1">Book1</option>
-                                    <option value="Book2">Book2</option>
-                                    {/* <option value="Quilting">Quilting</option>
-                                    <option value="Beadwork">Beadwork</option>
-                                    <option value="Tie-Dyeing">Tie-Dyeing</option>
-                                    <option value="Macrame">Macrame</option> */}
-
+                                    <option value="Novel">Novel</option>
+                                    <option value="Thriller">Thriller</option>
+                                    <option value="History">History</option>
+                                    <option value="Drama">Drama</option>
                                 </select>
                                 {/* Display selected option */}
                                 {/* <p>You selected: {selectedOption}</p> */}
