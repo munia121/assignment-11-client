@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -12,9 +14,10 @@ const NavBar = () => {
         logOut()
             .then(result => {
                 console.log(result.user)
+                toast.success('User Logged Out')
             })
             .catch(error => {
-                // toast.success('User Log out')
+                toast.success('User Log out')
                 console.log(error)
             })
     }

@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const CategoryDetails = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -16,14 +17,15 @@ const CategoryDetails = () => {
     const [reload, setReload] = useState(true)
 
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault()
+        // eslint-disable-next-line no-unused-vars
         const form = e.target
         const email = user?.email
         const name = user?.displayName
         const date = startDate
 
-        const books = {email, name, date}
+        const books = { email, name, date }
         console.log(books)
 
         fetch(`http://localhost:5000/reduceQuantity/${id}`, {
@@ -33,13 +35,17 @@ const CategoryDetails = () => {
             },
             body: JSON.stringify(books)
         })
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data)
-            setReload(!reload)
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    form.reset()
+                    toast.success('Update success')
+                }
+                setReload(!reload)
+            })
     }
-    
+
 
 
 
@@ -93,7 +99,7 @@ const CategoryDetails = () => {
                                             <div className="label">
                                                 <span className="label-text">Email</span>
                                             </div>
-                                            <input type="email" name="email" defaultValue={user?.email}  className="input border-[#f29c94] input-bordered w-full " />
+                                            <input type="email" name="email" defaultValue={user?.email} className="input border-[#f29c94] input-bordered w-full " />
                                         </label>
                                         <label className=" form-control ">
                                             <div className="label">
@@ -111,7 +117,7 @@ const CategoryDetails = () => {
                                         </div>
                                     </div>
                                     <div className="mt-5">
-                                        <input  className="btn" type="submit" value="Submit" />
+                                        <input className="btn" type="submit" value="Submit" />
                                     </div>
                                 </form>
                             </div>
