@@ -8,14 +8,40 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const CategoryDetails = () => {
     const [startDate, setStartDate] = useState(new Date());
     const { id } = useParams()
-    // console.log(id)
     const { user } = useContext(AuthContext)
-
-
-
+    // console.log(user.displayName)
     const [book, setBook] = useState({})
     // eslint-disable-next-line no-unused-vars
     const { _id, photo, description, name, author, category, ratings, quantity } = book;
+    const [reload, setReload] = useState(true)
+
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        const form = e.target
+        const email = user?.email
+        const name = user?.displayName
+        const date = startDate
+
+        const books = {email, name, date}
+        console.log(books)
+
+        fetch(`http://localhost:5000/reduceQuantity/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(books)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+            setReload(!reload)
+        })
+    }
+    
+
+
 
 
     useEffect(() => {
@@ -26,7 +52,7 @@ const CategoryDetails = () => {
                 console.log(data)
                 setBook(data)
             })
-    }, [id]);
+    }, [id, reload]);
 
 
     return (
@@ -34,7 +60,7 @@ const CategoryDetails = () => {
             <div className="hero-content flex-col lg:flex-row">
                 <img src={photo} className="lg:w-[600px] lg:h-[500px] rounded-lg shadow-2xl" />
                 <div>
-                    <h2 className="font-bold text-xl">quantity : {quantity}</h2>
+                    <h2 className="font-bold text-xl">quantity : {quantity} Books</h2>
                     <h1 className="text-3xl font-bold">{name}</h1>
                     <p className="font-bold">Author: {author}</p>
                     <p className="font-bold">Category: {category}</p>
@@ -61,19 +87,19 @@ const CategoryDetails = () => {
                                     {/* if there is a button in form, it will close the modal */}
                                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                 </form>
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     <div className="flex gap-4">
                                         <label className=" form-control ">
                                             <div className="label">
                                                 <span className="label-text">Email</span>
                                             </div>
-                                            <input type="text" name="email" defaultValue={user.email} placeholder="item name" className="input border-[#f29c94] input-bordered w-full " />
+                                            <input type="email" name="email" defaultValue={user?.email}  className="input border-[#f29c94] input-bordered w-full " />
                                         </label>
                                         <label className=" form-control ">
                                             <div className="label">
                                                 <span className="label-text">Name</span>
                                             </div>
-                                            <input type="text" name="name" defaultValue={user.displayName} placeholder="item name" className="input border-[#f29c94] input-bordered w-full " />
+                                            <input type="text" name="name" defaultValue={user?.displayName} placeholder="item name" className="input border-[#f29c94] input-bordered w-full " />
                                         </label>
                                     </div>
                                     <div className="">
@@ -85,7 +111,7 @@ const CategoryDetails = () => {
                                         </div>
                                     </div>
                                     <div className="mt-5">
-                                        <input className="btn" type="submit" value="Submit" />
+                                        <input  className="btn" type="submit" value="Submit" />
                                     </div>
                                 </form>
                             </div>
