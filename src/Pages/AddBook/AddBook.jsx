@@ -27,7 +27,7 @@ const AddBook = () => {
 
         // send data to the server
 
-        fetch('http://localhost:5000/addBooks', {
+        fetch('http://localhost:5000/addBooks',{credentials:'include'}, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

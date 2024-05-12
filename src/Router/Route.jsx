@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
             {
                 path:'/allBooks',
                 element:<PrivetRoute><AllBook></AllBook></PrivetRoute>,
-                loader: () => fetch('http://localhost:5000/allBooks')
+                loader: () => fetch('http://localhost:5000/allBooks', {credentials:'include'})
             },
             {
                 path:'/borrowedBook',
