@@ -1,15 +1,86 @@
+/* eslint-disable react/prop-types */
 
-const BorrowCard = () => {
+// import { toast } from "react-toastify";
+import Swal from "sweetalert2";
+
+const BorrowCard = ({ book, borrowBook, setBorrowBook }) => {
+    const {_id, photo, name, category, borrowDate, returnDate } = book;
+    console.log(borrowBook)
+
+    const handleDelete = (id) => {  
+        console.log(id)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/borrowed/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+
+                            const remaining = borrowBook.filter(book => book._id !== id);
+                            setBorrowBook(remaining)
+                        }
+                    })
+
+                console.log('delete confirm')
+            }
+
+
+            fetch(`http://localhost:5000/increaseQuantity/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(book)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                
+            })
+            
+        });
+    }
+    
+
     return (
         <div>
-            <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
-                <img src="https://source.unsplash.com/random/300x300/?2" alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
+            <div className=" rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
+                <img src={photo} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
                 <div className="flex flex-col justify-between p-6 space-y-8">
                     <div className="space-y-2">
-                        <h2 className="text-3xl font-semibold tracking-wide">Donec lectus leo</h2>
-                        <p className="dark:text-gray-800">Curabitur luctus erat nunc, sed ullamcorper erat vestibulum eget.</p>
+                        <h2 className="text-2xl font-semibold tracking-wide">Name: {name}</h2>
+                        <p className="dark:text-gray-800 font-bold text-green-500">Category: {category}</p>
                     </div>
-                    <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50">Read more</button>
+                    <div className="space-y-2 font-bold">
+                        <p >Borrow Date: <span className="text-green-600">{borrowDate}</span></p>
+                        <p >Return Date: <span className="text-green-600">{returnDate}</span></p>
+                    </div>
+                    <button 
+                    onClick={() => handleDelete(_id)}
+                     className="px-5 py-2.5 relative rounded group  text-white font-medium inline-block">
+                        <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-r from-[#d4e09b] to-[#c4f1be]"></span>
+                        <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50  from-[#d4e09b] to-[#c4f1be]"></span>
+                        <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl  filter group-active:opacity-0 group-hover:blur-sm bg-gradient-to-r from-[#d4e09b] to-[#c4f1be]"></span>
+                        <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded  bg-gradient-to-r from-[#d4e09b] to-[#c4f1be]"></span>
+                        <span className="relative">Return</span>
+                    </button>
                 </div>
             </div>
         </div>

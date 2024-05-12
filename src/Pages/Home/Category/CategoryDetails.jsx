@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Rating from "react-rating";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../../Provider/AuthProvider";
@@ -23,8 +23,8 @@ const CategoryDetails = () => {
         const form = e.target
         const email = user?.email
         // const displayName = user?.displayName
-        const returnDate =  new Date(startDate).toLocaleDateString()
-        const borrowDate =new Date().toLocaleDateString()
+        const returnDate = new Date(startDate).toLocaleDateString()
+        const borrowDate = new Date().toLocaleDateString()
 
         const books = { email, name, photo, returnDate, borrowDate, category }
         console.log(books)
@@ -101,10 +101,10 @@ const CategoryDetails = () => {
                         {/* You can open the modal using document.getElementById('ID').showModal() method */}
 
                         {/* ************************************************************* */}
-                        
+
                         <button className="btn bg-gradient-to-r from-[#f5d3d0] to-[#f29c94]"
-                        disabled= {quantity === 0}
-                         onClick={() => document.getElementById('my_modal_3').showModal()}>Borrow</button>
+                            disabled={quantity === 0}
+                            onClick={() => document.getElementById('my_modal_3').showModal()}>Borrow</button>
                         <dialog id="my_modal_3" className="modal ">
                             <div className="modal-box">
                                 <form method="dialog">
