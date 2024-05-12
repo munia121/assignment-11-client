@@ -91,6 +91,8 @@ const AddBook = () => {
                                     <option value="Thriller">Thriller</option>
                                     <option value="History">History</option>
                                     <option value="Drama">Drama</option>
+                                    <option value="Psychology">Psychology</option>
+                                    <option value="Poetry">Poetry</option>
                                 </select>
                                 {/* Display selected option */}
                                 {/* <p>You selected: {selectedOption}</p> */}

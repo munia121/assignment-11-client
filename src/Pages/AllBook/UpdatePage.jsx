@@ -1,7 +1,7 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../Provider/AuthProvider";
+
 import image from '../../assets/cover.jpg'
 
 
@@ -97,6 +97,8 @@ const UpdatePage = () => {
                                     <option value="Thriller">Thriller</option>
                                     <option value="History">History</option>
                                     <option value="Drama">Drama</option>
+                                    <option value="Psychology">Psychology</option>
+                                    <option value="Poetry">Poetry</option>
                                 </select>
                                 {/* Display selected option */}
                                 {/* <p>You selected: {selectedOption}</p> */}
