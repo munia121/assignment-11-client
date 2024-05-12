@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 // import Swal fromBook1rt2";
 import image from '../../assets/cover.jpg'
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const AddBook = () => {
     const { user } = useContext(AuthContext)
@@ -27,7 +28,8 @@ const AddBook = () => {
 
         // send data to the server
 
-        fetch('http://localhost:5000/addBooks',{credentials:'include'}, {
+        fetch('http://localhost:5000/addBooks', {
+            credentials:'include',
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -47,7 +49,13 @@ const AddBook = () => {
                     confirmButtonText: 'Ok'
                 })
             }
+            else{
+                toast.warning("Something went wrong")
+            }
 
+        })
+        .catch(err =>{
+            console.log(err)
         })
     }
 
