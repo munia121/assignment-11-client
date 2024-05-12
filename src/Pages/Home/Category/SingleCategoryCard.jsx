@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const SingleCategoryCard = ({ book }) => {
 
     // eslint-disable-next-line no-unused-vars
-    const { _id, photo, description, name, author, category, ratings } = book;
+    const { _id, photo, quantity, name, author, category, ratings } = book;
 
 
     return (
@@ -20,12 +20,13 @@ const SingleCategoryCard = ({ book }) => {
                         <h2 className="text-xl font-semibold mt-2 tracking-wide">Book Name: {name}</h2>
                     </div>
                     {/* <p className="dark:text-gray-800">{description.slice(0,100)}</p> */}
-                    <div>
+                    <div className="font-bold">
                         <p>Category:  {category}</p>
+                        <p>Quantity: {quantity}</p>
                         <div className="flex  items-center">
                             <p>Ratings: {ratings} </p>
                             <Rating
-                                
+
                                 initialRating={ratings}
                                 readonly
                             />

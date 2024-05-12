@@ -1,9 +1,9 @@
 import img1 from '../../assets/image1.jpeg'
 const ExtraSection1 = () => {
     return (
-        <div className='mt-44 p-5'>
+        <div className='mt-44 p-5 lg:w-[1200px] mx-auto'>
             <h3 className='text-4xl font-bold'>Student ePortfolios & Blogs</h3>
-            <div className=' lg:flex gap-7 mt-5 lg:relative lg:w-[1200px] '>
+            <div className=' lg:flex gap-7 mt-5 lg:relative  '>
                 <div className=''>
                     <img className='lg:h-[400px] rounded-lg lg:w-[700px]' src={img1} alt="" />
                 </div>

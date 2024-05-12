@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Rating from "react-rating";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../../Provider/AuthProvider";
@@ -26,7 +26,7 @@ const CategoryDetails = () => {
         const returnDate = new Date(startDate).toLocaleDateString()
         const borrowDate = new Date().toLocaleDateString()
 
-        const books = { email, name, photo, returnDate, borrowDate, category }
+        const books = {borrowedBookId: _id , email, name, photo, returnDate, borrowDate, category }
         console.log(books)
 
         fetch(`http://localhost:5000/reduceQuantity/${id}`, {

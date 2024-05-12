@@ -4,7 +4,7 @@
 import Swal from "sweetalert2";
 
 const BorrowCard = ({ book, borrowBook, setBorrowBook }) => {
-    const {_id, photo, name, category, borrowDate, returnDate } = book;
+    const {_id, photo, name, category, borrowDate, returnDate,borrowedBookId } = book;
     console.log(borrowBook)
 
     const handleDelete = (id) => {  
@@ -42,7 +42,7 @@ const BorrowCard = ({ book, borrowBook, setBorrowBook }) => {
             }
 
 
-            fetch(`http://localhost:5000/increaseQuantity/${id}`, {
+            fetch(`http://localhost:5000/increaseQuantity/${borrowedBookId}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
