@@ -10,11 +10,13 @@ import CategoryPage from "../Pages/Home/Category/CategoryPage";
 import CategoryDetails from "../Pages/Home/Category/CategoryDetails";
 import PrivetRoute from "./PrivetRoute";
 import UpdatePage from "../Pages/AllBook/UpdatePage";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayOut></MainLayOut>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
@@ -33,6 +35,7 @@ export const router = createBrowserRouter([
             {
                 path:'/borrowedBook',
                 element:<PrivetRoute><BorrowedBooke></BorrowedBooke></PrivetRoute>
+
             },
             {
                 path:'/login',
