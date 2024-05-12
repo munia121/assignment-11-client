@@ -1,7 +1,7 @@
 
 const ExtraSection2 = () => {
     return (
-        <div>
+        <div className="p-5">
             <div className="text-center rounded-lg lg:mt-20 border bg-gradient-to-r from-[#d4e09b] to-[#c4f1be] border-[#f29c94] p-4 lg:py-20">
                 <h1 className="text-4xl font-bold">Get Our Latets Update !</h1>
                 <p className="text-[#f08e85] mt-4">Subscribe to our latest newsletter to get news about special discounts.</p>

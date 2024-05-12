@@ -1,3 +1,4 @@
+import img from '../assets/book.jpg'
 
 const Footer = () => {
     return (
@@ -14,7 +15,7 @@ const Footer = () => {
                     </div> */}
                         </a>
                         <div className='flex items-center'>
-                            <img className='w-20' src='' alt="" />
+                            <img className='w-20' src={img} alt="" />
                             <a className="btn btn-ghost gap-0 text-3xl">Library<span className="text-[#c4f1be]">Genesis</span></a>
                         </div>
                     </div>
