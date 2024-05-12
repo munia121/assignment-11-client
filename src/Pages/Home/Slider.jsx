@@ -40,12 +40,13 @@ const Slider = () => {
                             <div className='flex items-center rounded-lg justify-center w-full h-full bg-gray-900/70'>
                                 <div className='text-center'>
                                     <h1 className='text-3xl font-semibold text-white lg:text-4xl'>
-                                    Journeying with  <span className='text-blue-400'>Saas</span> Project
+
+                                        Welcome to Our Literary Haven
                                     </h1>
                                     <br />
                                     <Link to={'/add-job'}>
-                                        <button className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500'>
-                                            Post Job & Hire Expert
+                                        <button className='w-full px-5 py-4 mt-4 text-sm capitalize transition-colors duration-300 transform bg-[#a8ec9f] font-bold rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500'>
+                                            Our Book Collection
                                         </button></Link>
                                 </div>
                             </div>
@@ -61,11 +62,11 @@ const Slider = () => {
                             <div className='flex items-center rounded-lg justify-center w-full h-full bg-gray-900/70'>
                                 <div className='text-center'>
                                     <h1 className='text-3xl font-semibold text-white lg:text-4xl'>
-                                        Build your new <span className='text-blue-400'>Saas</span> Project
+                                        Enter Our Realm of Infinite Possibilities
                                     </h1>
                                     <br />
-                                    <button className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500'>
-                                        Post Job & Hire Expert
+                                    <button className='w-full px-5 py-4 mt-4 text-sm font-bold bg-[#a8ec9f] capitalize transition-colors duration-300 transform  rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500'>
+                                        Our Book Collection
                                     </button>
                                 </div>
                             </div>
@@ -81,11 +82,11 @@ const Slider = () => {
                             <div className='flex items-center rounded-lg justify-center w-full h-full bg-gray-900/70'>
                                 <div className='text-center'>
                                     <h1 className='text-3xl font-semibold text-white lg:text-4xl'>
-                                        Build your new <span className='text-blue-400'>Saas</span> Project
+                                        Find Your Next Favorite Read Here
                                     </h1>
                                     <br />
-                                    <button className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500'>
-                                        Post Job & Hire Expert
+                                    <button className='w-full px-5 py-4 mt-4 text-sm font-bold bg-[#a8ec9f] capitalize transition-colors duration-300 transform  rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500'>
+                                        Our Book Collection
                                     </button>
                                 </div>
                             </div>

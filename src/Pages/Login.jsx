@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
-    const { userLogin, googleLogin, gitHubLogin } = useContext(AuthContext);
+    const { userLogin, googleLogin,  } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
@@ -112,7 +112,7 @@ const Login = () => {
                                     name="password"
                                     placeholder="password"
                                     className="input input-bordered" required />
-                                <span className="absolute ml-48 mt-14 lg:ml-[250px]" onClick={() => setShowPassword(!showPassword)}>
+                                <span className="absolute ml-[200px] mt-14 lg:ml-[450px]" onClick={() => setShowPassword(!showPassword)}>
 
                                     {
                                         showPassword ? <FaRegEye size={30}></FaRegEye> :
@@ -136,21 +136,21 @@ const Login = () => {
 
 
                             <p>Don't you have an account? <Link className="text-pink-700 underline" to={'/register'}>Register now</Link></p>
-                            <div className="flex gap-4 items-center justify-between mt-10">
+                            <div className="flex gap-4  items-center justify-between mt-5">
 
                                 <p className="w-full h-0.5 bg-black"></p>
                                 <p>or</p>
                                 <p className="w-full h-0.5 bg-black"></p>
 
                             </div>
-                            <div className="mt-6 mx-auto flex gap-8">
-                                <p onClick={googleHandle} className=" bg-black px-4 rounded-md py-2">
-                                    <FcGoogle size={30}></FcGoogle>
+                            <div className="mt-6 mx-auto   gap-8">
+                                <p onClick={googleHandle} className=" border border-[#f29c94] lg:w-[400px] px-4 py-2 rounded-md ">
+                                    <FcGoogle className="w-full" size={30}></FcGoogle>
                                 </p>
 
-                                {/* <p onClick={gitHubHandle} className="px-4 py-2 rounded-md border">
-                                    <FaGithub size={30}></FaGithub>
-                                </p> */}
+                                <p  className="px-4 mt-3 py-2 lg:w-[400px] border-[#f29c94] rounded-md border">
+                                    <FaGithub className="w-full" size={30}></FaGithub>
+                                </p>
                             </div>
                         </form>
                     </div>

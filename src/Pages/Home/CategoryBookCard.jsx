@@ -6,9 +6,9 @@ const CategoryBookCard = ({book}) => {
     const {image, category} = book;
     return (
         <Link to={`/category/${category}`}>
-            <div className="mt-20">
-               <img className="w-[400px] mx-auto h-[200px] rounded-lg" src={image} alt="" />
-               <p  className="font-bold text-2xl text-center">{category}</p>
+            <div className="mt-28 w-[400px]">
+               <img className="w-[400px] mx-auto h-[200px] rounded-t-lg" src={image} alt="" />
+               <p  className="font-bold bg-gradient-to-r from-[#d4e09b] to-[#c4f1be] text-2xl rounded-b-lg py-3 text-center">{category}</p>
             </div>
         </Link>
     );

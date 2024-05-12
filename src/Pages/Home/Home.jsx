@@ -23,11 +23,14 @@ const Home = () => {
         <div>
             <Slider></Slider>
             <ExtraSection1></ExtraSection1>
-            <h1 className="text-6xl text-center mt-10">Category Part</h1>
-            <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
-                {
-                    books.map(book => <CategoryBookCard key={book._id} book={book}></CategoryBookCard>)
-                }
+            <div className="">
+                <h1 className="text-4xl text-center mt-20">There are some Book Collection</h1>
+                <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
+                    {
+                        books.map(book => <CategoryBookCard key={book._id} book={book}></CategoryBookCard>)
+                    }
+                </div>
+                <div className="mt-10"><hr /></div>
             </div>
             <ExtraSection3></ExtraSection3>
             <ExtraSection2></ExtraSection2>

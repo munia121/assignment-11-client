@@ -31,7 +31,7 @@ const BookCard = ({ book }) => {
                             <p className="font-bold">Quantity: {quantity}</p>
                         </div>
                         <Link to={`/update/${_id}`}>
-                            <button className="btn w-full mt-3 bg-gradient-to-r from-[#f5d3d0] to-[#f29c94]">Update</button>
+                            <button className="btn font-bold w-full mt-3 bg-gradient-to-r from-[#d4e09b] to-[#c4f1be]">Update</button>
                         </Link>
                     </div>
                 </div>

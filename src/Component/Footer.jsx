@@ -1,8 +1,9 @@
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="px-4 divide-y lg:mt-52 bg-gray-800 text-gray-100">
+        <div className="lg:mt-52">
+            <p className="text-center font-bold bg-gradient-to-r from-[#d4e09b] to-[#c4f1be] ">Checkout our new Book Bundles: click here</p>
+            <footer className="px-4 divide-y  bg-gray-800 text-gray-100">
                 <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                     <div className="lg:w-1/3">
                         <a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
@@ -14,7 +15,7 @@ const Footer = () => {
                         </a>
                         <div className='flex items-center'>
                             <img className='w-20' src='' alt="" />
-                            <a className="btn btn-ghost gap-0 text-3xl">Website<span className="text-[#f08b81]">Name</span></a>
+                            <a className="btn btn-ghost gap-0 text-3xl">Library<span className="text-[#c4f1be]">Genesis</span></a>
                         </div>
                     </div>
                     <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
