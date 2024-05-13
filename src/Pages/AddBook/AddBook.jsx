@@ -46,7 +46,7 @@ const AddBook = () => {
                     title: 'Success',
                     text: 'Data Added Successfully',
                     icon: 'success',
-                    confirmButtonText: 'Ok'
+                    confirmButtonText: 'Ok' 
                 })
             }
             else{
