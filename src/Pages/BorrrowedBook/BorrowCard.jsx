@@ -20,7 +20,7 @@ const BorrowCard = ({ book, borrowBook, setBorrowBook }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/borrowed/${id}`, {
+                fetch(`https://assignment-11-server-eight-tau.vercel.app/borrowed/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -42,7 +42,7 @@ const BorrowCard = ({ book, borrowBook, setBorrowBook }) => {
             }
 
 
-            fetch(`http://localhost:5000/increaseQuantity/${borrowedBookId}`, {
+            fetch(`https://assignment-11-server-eight-tau.vercel.app/increaseQuantity/${borrowedBookId}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

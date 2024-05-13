@@ -3,7 +3,11 @@
 export default {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        lato: "'Lato', sans-serif",
+      }
+    },
   },
   plugins: [
     require('daisyui'),

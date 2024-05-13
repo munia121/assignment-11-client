@@ -10,7 +10,7 @@ const Home = () => {
     const [books, setBooks] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bookCategory`)
+        fetch(`https://assignment-11-server-eight-tau.vercel.app/bookCategory`)
             .then(res => res.json())
             .then(data => {
                 setBooks(data)
@@ -21,7 +21,12 @@ const Home = () => {
 
     return (
         <div>
-            <Slider></Slider>
+            <div className="flex items-center">
+                <div>
+                    
+                </div>
+                <Slider></Slider>
+            </div>
             <div className="mx-auto">
                 <ExtraSection1></ExtraSection1>
             </div>

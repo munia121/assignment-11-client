@@ -20,10 +20,10 @@ const BookCard = ({ book }) => {
                         {/* <p className="dark:text-gray-800">{description.slice(0,100)}</p> */}
                         <div>
                             <p>Category:  {category}</p>
-                            <div className="flex  items-center">
+                            <div className="flex gap-3 items-center">
                                 <p>Ratings: {ratings} </p>
                                 <Rating
-
+                                    className="text-[]"
                                     initialRating={ratings}
                                     readonly
                                 />

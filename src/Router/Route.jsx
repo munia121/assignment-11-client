@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
             // {
             //     path:'/allBooks',
             //     element:<PrivetRoute><AllBook></AllBook></PrivetRoute>,
-            //     loader: () => fetch('http://localhost:5000/allBooks', {credentials:'include'})
+            //     loader: () => fetch('https://assignment-11-server-eight-tau.vercel.app/allBooks', {credentials:'include'})
             // },
             {
                 path:'/borrowedBook',
@@ -49,22 +49,22 @@ export const router = createBrowserRouter([
             {
                 path:'/category/:category',
                 element:<PrivetRoute><CategoryPage></CategoryPage></PrivetRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/bookCategory/${params.category}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-eight-tau.vercel.app/bookCategory/${params.category}`)
             },
             {
                 path:'/details/:id',
                 element:<CategoryDetails></CategoryDetails>,
-                // loader:({param}) => fetch(`http://localhost:5000/bookDetails/${param.id}`)
+                // loader:({param}) => fetch(`https://assignment-11-server-eight-tau.vercel.app/bookDetails/${param.id}`)
             },
             {
                 path:'/update/:id',
                 element:<UpdatePage></UpdatePage>,
-                loader:({params}) => fetch(`http://localhost:5000/bookDetails/${params.id}`)
+                loader:({params}) => fetch(`https://assignment-11-server-eight-tau.vercel.app/bookDetails/${params.id}`)
             },
             {
                 path:'/testBook',
                 element:<PrivetRoute><TestBook></TestBook></PrivetRoute>,
-                loader: () => fetch('http://localhost:5000/allBooks', {credentials:'include'})
+                // loader: () => fetch('https://assignment-11-server-eight-tau.vercel.app/allBooks', {credentials:'include'})
             },
         ]
     },

@@ -10,7 +10,7 @@ const BorrowedBooke = () => {
 
     console.log(borrowBook)
     useEffect(() =>{
-        fetch(`http://localhost:5000/BorrowBook/${user.email}`)
+        fetch(`https://assignment-11-server-eight-tau.vercel.app/BorrowBook/${user.email}`)
         .then(res => res.json())
         .then(data => {
             setBorrowBook(data)

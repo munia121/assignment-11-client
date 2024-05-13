@@ -29,7 +29,7 @@ const CategoryDetails = () => {
         const books = {borrowedBookId: _id , email, name, photo, returnDate, borrowDate, category }
         console.log(books)
 
-        fetch(`http://localhost:5000/reduceQuantity/${id}`, {
+        fetch(`https://assignment-11-server-eight-tau.vercel.app/reduceQuantity/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -46,7 +46,7 @@ const CategoryDetails = () => {
                 setReload(!reload)
             })
 
-        fetch('http://localhost:5000/borrowBook', {
+        fetch('https://assignment-11-server-eight-tau.vercel.app/borrowBook', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -67,7 +67,7 @@ const CategoryDetails = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/bookDetails/${id}`)
+        fetch(`https://assignment-11-server-eight-tau.vercel.app/bookDetails/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -117,13 +117,13 @@ const CategoryDetails = () => {
                                             <div className="label">
                                                 <span className="label-text">Email</span>
                                             </div>
-                                            <input type="email" name="email" defaultValue={user?.email} className="input border-[#f29c94] input-bordered w-full " />
+                                            <input readOnly type="email" name="email" defaultValue={user?.email} className="input border-[#f29c94] input-bordered w-full " />
                                         </label>
                                         <label className=" form-control ">
                                             <div className="label">
                                                 <span className="label-text">Name</span>
                                             </div>
-                                            <input type="text" name="name" defaultValue={user?.displayName} placeholder="item name" className="input border-[#f29c94] input-bordered w-full " />
+                                            <input readOnly type="text" name="name" defaultValue={user?.displayName} placeholder="item name" className="input border-[#f29c94] input-bordered w-full " />
                                         </label>
                                     </div>
                                     <div className="">
