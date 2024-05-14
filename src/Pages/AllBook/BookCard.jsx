@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+// import { FaRegStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
@@ -22,11 +23,16 @@ const BookCard = ({ book }) => {
                             <p>Category:  {category}</p>
                             <div className="flex gap-3 items-center">
                                 <p>Ratings: {ratings} </p>
-                                <Rating
-                                    className="text-[]"
-                                    initialRating={ratings}
-                                    readonly
-                                />
+                                <div className="">
+                                    <Rating
+                                        className="text-[] "
+                                        initialRating={ratings}
+                                        readonly
+                                    />
+                                    
+
+                                </div>
+
                             </div>
                             <p className="font-bold">Quantity: {quantity}</p>
                         </div>

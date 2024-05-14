@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
                 loader:({params}) => fetch(`https://assignment-11-server-eight-tau.vercel.app/bookDetails/${params.id}`)
             },
             {
-                path:'/testBook',
+                path:'/testbook',
                 element:<PrivetRoute><TestBook></TestBook></PrivetRoute>,
                 // loader: () => fetch('https://assignment-11-server-eight-tau.vercel.app/allBooks', {credentials:'include'})
             },
