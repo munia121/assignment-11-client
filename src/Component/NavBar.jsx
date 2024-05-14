@@ -66,8 +66,8 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="flex items-center">
-                    <img className="w-20 hidden lg:block" src={img} alt="" />
-                    <a className="btn btn-ghost gap-0 text-3xl">Library <span className="text-[#247819]">G</span> enesis</a>
+                    <img className="w-20 " src={img} alt="" />
+                    <a className="btn btn-ghost gap-0 hidden lg:block lato text-3xl">Library <span className="text-[#247819]">G</span> enesis</a>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

@@ -25,8 +25,8 @@ const TestBook = () => {
         setView(e.target.value)
     }
 
-    const handleFilterCard = () =>{
-        const filtered = book.filter(b => b.quantity > 0 )
+    const handleFilterCard = () => {
+        const filtered = book.filter(b => b.quantity > 0)
         setBook(filtered)
     }
 
@@ -37,16 +37,18 @@ const TestBook = () => {
                     <button onClick={toggleView} className="border p-3 font-bold bg-gradient-to-r from-[#d4e09b] to-[#c4f1be] flex lg:ml-[1350px] lg:mt-14">Toggle View</button>
                 </div> */}
 
-                <div className=" lg:pt-[50px] lg:ml-5">
-                    <button className="border p-3 font-bold bg-gradient-to-r from-[#d4e09b] to-[#c4f1be]" 
-                    onClick={handleFilterCard}>Show available books</button>
-                </div>
+                <div className="flex lg:flex-none mt-4">
+                    <div className="lg:absolute lg:z-[1000] lg:pt-[50px] lg:ml-5">
+                        <button className="border p-3 font-bold bg-gradient-to-r from-[#d4e09b] to-[#c4f1be]"
+                            onClick={handleFilterCard}>Show available books</button>
+                    </div>
 
-                <div className="flex justify-end absolute">
-                    <select className="lg:ml-[1350px] lg:mt-14 border p-3 font-bold bg-gradient-to-r from-[#d4e09b] to-[#c4f1be]" value={view} onChange={handleChange}>
-                        <option value="table">Table View</option>
-                        <option value="card">Card View</option>
-                    </select>
+                    <div className="flex justify-end lg:absolute">
+                        <select className="lg:ml-[1350px] ml-20 lg:mt-14 border lg:p-3 font-bold bg-gradient-to-r from-[#d4e09b] to-[#c4f1be]" value={view} onChange={handleChange}>
+                            <option value="table">Table View</option>
+                            <option value="card">Card View</option>
+                        </select>
+                    </div>
                 </div>
 
 
@@ -54,7 +56,10 @@ const TestBook = () => {
                     <TableView book={book} />
                 ) : (
                     <div className="">
-                        <h2 className="lg:text-3xl text-xl text-center font-bold mt-10">Our All Books</h2>
+                        <div className=" text-center">
+                            <h2 className="lg:text-3xl text-xl font-bold mt-20">Our All Books</h2>
+                            <p>All Books are Stored here for card view</p>
+                        </div>
                         <div className="grid mt-20 grid-cols-1 gap-10 lg:grid-cols-4 md:grid-cols-2">
                             {
                                 book.map(book => <BookCard key={book._id} book={book}></BookCard>)

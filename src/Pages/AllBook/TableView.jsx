@@ -7,10 +7,9 @@ const TableView = ({ book }) => {
     return (
         <div>
             <section className='container px-4 mx-auto pt-12'>
-                <div className='flex items-center gap-x-3'>
+                <div className=' text-center'>
                     <h2 className='mx-auto lg:text-3xl font-bold '>Our All Books</h2>
-
-
+                    <p>All Books are Stored here for card view</p>
                 </div>
 
                 <div className='flex flex-col mt-6'>
