@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-// import img1 from '../../assets/image1.jpeg'
-import img1 from '../../assets/images (4).jpeg'
+import img1 from '../../assets/image1.jpeg'
+import img from '../../assets/images (4).jpeg'
 import img2 from '../../assets/images (6).jpeg'
 import img3 from '../../assets/images (5).jpeg'
 import { IoIosStar} from 'react-icons/io';
@@ -35,7 +35,7 @@ const ExtraSection1 = () => {
                     </div>
                     <div className="lg:flex gap-5">
                         <div className='shadow-lg p-4'>
-                            <img className='lg:w-[800px] w-full lg:h-[200px]' src={img1} alt="" />
+                            <img className='lg:w-[800px] w-full lg:h-[200px]' src={img} alt="" />
                             <div className='space-y-3 mt-2'>
                                 <p>AdventureFun</p>
                                 <hr />
