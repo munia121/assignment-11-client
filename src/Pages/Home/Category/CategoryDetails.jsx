@@ -78,8 +78,8 @@ const CategoryDetails = () => {
 
     return (
         <div className="hero mt-20 lg:p-20 rounded-lg ">
-            <div className="hero-content flex-col lg:flex-row">
-                <img src={photo} className="lg:w-[600px] lg:h-[500px] rounded-lg shadow-2xl" />
+            <div className="hero-content flex-col md:flex-row lg:flex-row">
+                <img src={photo} className="lg:w-[600px] md:w-[400px] lg:h-[500px] rounded-lg shadow-2xl" />
                 <div>
                     <h2 className="font-bold text-xl">quantity : {quantity} Books</h2>
                     <h1 className="text-3xl font-bold">{name}</h1>

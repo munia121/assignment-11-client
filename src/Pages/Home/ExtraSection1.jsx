@@ -33,9 +33,9 @@ const ExtraSection1 = () => {
                             <p className='border px-5 lg:px-14 py-3'>Read More</p>
                         </div>
                     </div>
-                    <div className="lg:flex gap-5">
-                        <div className='shadow-lg p-4'>
-                            <img className='lg:w-[800px] w-full lg:h-[200px]' src={img} alt="" />
+                    <div className="lg:flex  gap-5">
+                        <div className='shadow-lg p-4 '>
+                            <img className='lg:w-[800px] md:w-[400px] w-full lg:h-[200px]' src={img} alt="" />
                             <div className='space-y-3 mt-2'>
                                 <p>AdventureFun</p>
                                 <hr />
@@ -51,7 +51,7 @@ const ExtraSection1 = () => {
                             </div>
                         </div>
                         <div className='shadow-lg p-4'>
-                            <img className='lg:w-[800px] w-full lg:h-[200px]' src={img2} alt="" />
+                            <img className='lg:w-[800px] md:w-[400px] w-full lg:h-[200px]' src={img2} alt="" />
                             <div className='space-y-3 mt-2'>
                                 <p>AdventureFun</p>
                                 <hr />
@@ -67,7 +67,7 @@ const ExtraSection1 = () => {
                             </div>
                         </div>
                         <div className=' shadow-lg p-4'>
-                            <img className='lg:w-[800px] w-full lg:h-[200px]' src={img3} alt="" />
+                            <img className='lg:w-[800px] md:w-[400px] w-full lg:h-[200px]' src={img3} alt="" />
                             <div className='space-y-3 mt-2'>
                                 <p>AdventureFun</p>
                                 <hr />
