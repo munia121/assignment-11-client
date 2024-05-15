@@ -26,7 +26,7 @@ const CategoryDetails = () => {
         const returnDate = new Date(startDate).toLocaleDateString()
         const borrowDate = new Date().toLocaleDateString()
 
-        const books = {borrowedBookId: _id , email, name, photo, returnDate, borrowDate, category }
+        const books = { borrowedBookId: _id, email, name, photo, returnDate, borrowDate, category }
         console.log(books)
 
         fetch(`https://assignment-11-server-eight-tau.vercel.app/reduceQuantity/${id}`, {
@@ -57,11 +57,20 @@ const CategoryDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                
+
             })
 
     }
 
-
+    // const handleBorrowBtn = (bookName) => {
+    //     if (book.includes(bookName)) {
+    //         return alert('bro koae ache')
+    //     }
+    //     // else{
+    //     //     book.push()
+    //     // }
+    // }
 
 
 
@@ -102,11 +111,15 @@ const CategoryDetails = () => {
 
                         {/* ************************************************************* */}
 
-                        <button className="btn bg-gradient-to-r from-[#f5d3d0] to-[#f29c94]"
+                        <button
+                            className="btn bg-gradient-to-r from-[#f5d3d0] to-[#f29c94]"
                             disabled={quantity === 0}
-                            onClick={() => document.getElementById('my_modal_3').showModal()}>Borrow</button>
-                        <dialog id="my_modal_3" className="modal ">
-                            <div className="modal-box">
+                            onClick={() =>
+                            document.getElementById('my_modal_3').showModal()} >Borrow
+
+                        </button>
+                        <dialog id="my_modal_3" className="modal h-full">
+                            <div className="modal-box md:h-[400px]">
                                 <form method="dialog">
                                     {/* if there is a button in form, it will close the modal */}
                                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -131,11 +144,11 @@ const CategoryDetails = () => {
                                             <label className='text-gray-700'>Return Date</label>
 
                                             {/* Date Picker Input Field */}
-                                            <DatePicker className="border rounded-md p-2" selected={startDate} onChange={(date) => setStartDate(date)} />
+                                            <DatePicker className="border border-[#f29c94]  rounded-md p-2" selected={startDate} onChange={(date) => setStartDate(date)} />
                                         </div>
                                     </div>
                                     <div className="mt-5">
-                                        <input className="btn" type="submit" value="Submit" />
+                                        <input className="btn bg-gradient-to-r from-[#f5d3d0] to-[#f29c94]" type="submit" value="Submit" />
                                     </div>
                                 </form>
                             </div>
