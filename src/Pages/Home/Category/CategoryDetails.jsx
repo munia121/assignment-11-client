@@ -29,22 +29,6 @@ const CategoryDetails = () => {
         const books = { borrowedBookId: _id, email, name, photo, returnDate, borrowDate, category }
         console.log(books)
 
-        fetch(`https://assignment-11-server-eight-tau.vercel.app/reduceQuantity/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(books)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.modifiedCount) {
-                    form.reset()
-                    toast.success('Update success')
-                }
-                setReload(!reload)
-            })
 
         fetch('https://assignment-11-server-eight-tau.vercel.app/borrowBook', {
             method: 'POST',
@@ -56,8 +40,31 @@ const CategoryDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
+                if (data.message == 'successfully borrowed') {
+                    fetch(`https://assignment-11-server-eight-tau.vercel.app/reduceQuantity/${id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(books)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data)
+                            if (data.modifiedCount) {
+                                form.reset()
+                                toast.success('Borrowed successfully')
+                            }
+                            setReload(!reload)
+                        })
+
+                }
+                else{
+                    toast.error(data.message)
+                }
                 console.log(data);
-                
+
+
 
             })
 
@@ -115,7 +122,7 @@ const CategoryDetails = () => {
                             className="btn bg-gradient-to-r from-[#f5d3d0] to-[#f29c94]"
                             disabled={quantity === 0}
                             onClick={() =>
-                            document.getElementById('my_modal_3').showModal()} >Borrow
+                                document.getElementById('my_modal_3').showModal()} >Borrow
 
                         </button>
                         <dialog id="my_modal_3" className="modal h-full">
