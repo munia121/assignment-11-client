@@ -26,7 +26,7 @@ const UpdatePage = () => {
 
         const updateBook = { name, category,  ratings, author, photo }
         console.log(updateBook)
-
+        // https://assignment-11-server-eight-tau.vercel.app
 
         fetch(`https://assignment-11-server-eight-tau.vercel.app/updateBook/${_id}`, {
             method: 'PUT',
@@ -42,6 +42,15 @@ const UpdatePage = () => {
                 if (data.modifiedCount) {
                     form.reset()
                     navigate('/testBook')
+
+                    fetch('https://assignment-11-server-eight-tau.vercel.app/updateBooks', {
+                        method:'POST',
+                        headers:{
+                            'content-type': 'application/json'
+                        },
+                        body:JSON.stringify(updateBook)
+                    })
+
                     Swal.fire({
                         title: 'Success',
                         text: 'Data Added Successfully',

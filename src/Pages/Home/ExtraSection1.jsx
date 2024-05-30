@@ -3,8 +3,21 @@ import img1 from '../../assets/image1.jpeg'
 import img from '../../assets/images (4).jpeg'
 import img2 from '../../assets/images (6).jpeg'
 import img3 from '../../assets/images (5).jpeg'
-import { IoIosStar} from 'react-icons/io';
+import { IoIosStar } from 'react-icons/io';
+import { useEffect, useState } from 'react';
+import ExtraSection1Card from './ExtraSection1Card';
 const ExtraSection1 = () => {
+    const [updatedBooks, setUpdatedBooks] = useState([])
+    console.log(updatedBooks)
+    const [dataLength, setDataLength] = useState(3)
+
+
+    useEffect(() => {
+        fetch('https://assignment-11-server-eight-tau.vercel.app/updatedBooks')
+            .then(res => res.json())
+            .then(data => setUpdatedBooks(data))
+    }, [])
+
     return (
         <div>
             <div className='lg:mt-44 p-5 lg:w-[1200px] mx-auto'>
@@ -25,16 +38,16 @@ const ExtraSection1 = () => {
                 <div className='lg:flex gap-10'>
                     <div className='p-4'>
                         <p className="text-xl lato">Taste The New Spice</p>
-                        <h3 className="text-4xl mt-2 lato">New Release Books</h3>
-                        <hr  className='mt-10'/>
+                        <h3 className="text-4xl mt-2 lato">New Updated Books</h3>
+                        <hr className='mt-10' />
                         <p className='text-xl mt-10 font-lato'>Set against the backdrop of a post-apocalyptic world where humanity teeters on the brink of extinction, 'Echoes of Tomorrow' by acclaimed author J.K. Reynolds takes readers on an electrifying journey through the ruins of civilization. As survivors struggle to rebuild amidst the chaos, a young protagonist,  </p>
                         <div className='flex gap-10 mt-10 font-bold'>
-                            <p className='border lg:px-14 px-5 py-3 rounded-lg bg-gradient-to-r from-[#d4e09b] to-[#c4f1be] border-[#f29c94]'>View All</p>
+                            <p onClick={() =>setDataLength(updatedBooks.length)} className='border lg:px-14 px-5 py-3 rounded-lg bg-gradient-to-r from-[#d4e09b] to-[#c4f1be] border-[#f29c94]'>View All</p>
                             <p className='border px-5 lg:px-14 py-3'>Read More</p>
                         </div>
                     </div>
-                    <div className="lg:flex  gap-5">
-                        <div className='shadow-lg p-4 '>
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-5">
+                        {/* <div className='shadow-lg p-4 '>
                             <img className='lg:w-[800px] md:w-[400px] w-full lg:h-[200px]' src={img} alt="" />
                             <div className='space-y-3 mt-2'>
                                 <p>AdventureFun</p>
@@ -49,8 +62,8 @@ const ExtraSection1 = () => {
                                 <IoIosStar />
                                 </div>
                             </div>
-                        </div>
-                        <div className='shadow-lg p-4'>
+                        </div> */}
+                        {/* <div className='shadow-lg p-4'>
                             <img className='lg:w-[800px] md:w-[400px] w-full lg:h-[200px]' src={img2} alt="" />
                             <div className='space-y-3 mt-2'>
                                 <p>AdventureFun</p>
@@ -81,8 +94,16 @@ const ExtraSection1 = () => {
                                 <IoIosStar />
                                 </div>
                             </div>
+                        </div> */}
+                        {
+                            updatedBooks.slice(0,dataLength).map(item => <ExtraSection1Card key={item._id} item={item}></ExtraSection1Card>)
+                        }
+
+                        <div className={dataLength === updatedBooks.length && 'hidden'}>
+                            <button onClick={() =>setDataLength(updatedBooks.length)} className='border bg-gradient-to-r from-[#d4e09b] to-[#c4f1be] border-[#f29c94] px-4 py-2 text-center flex justify-center'>See More</button>
                         </div>
                     </div>
+                       
                 </div>
             </section>
 
