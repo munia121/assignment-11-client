@@ -2,15 +2,16 @@
 # LiveURL: https://glittery-palmier-08a14a.netlify.app/
 
 # Overview
-- WeaveWonder is a art and craft categorize website where the website owner selling their painting and art and craft product related to this category. This is my 10th assignment At programming hero . In this project, I add many section and pages . Project feature is.: user can add their own product. Customize it. And I am working on many features .
+LibraryGenesis
+LibraryGenesis is an online library platform where can explore various books, engage in transactions , and participate in different event actives. Then main concept of the website is to provide users with information about books and supply them with their desired reads. The website aims to facilitate users in finding information about books and providing the necessary books accordingly.
 
 
-# Feauter:
-Feature-1: Through this project a user can add art and craft of his choice.
+# Features:
+Feature-1: Brrowing and Renewal: Enable users to borrow books online and specify the duration of the loan period. Allow for online renewal of borrowed items if they are not on hold for another user.
 
-Feature-2: A user can remove and update the added art and crafts as per his choice through this project.
+Feature-2: User Account: Allow users to create where they can manage their borrowing history, renew books, place holds , and create reading lists
 
-Feature-3: Book Borrowing and Renewals:Online booking and reservation system for books. Ability for users to renew borrowed books online, if allowed.
+Feature-3 : Book Borrowing and Renewals:Online booking and reservation system for books. Ability for users to renew borrowed books online, if allowed.
 
 # Tecnology used: 
 <b> react, javascript, nodejs, mongodb, expressjs, firebase, html-css,tailwind.</b>
