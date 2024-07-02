@@ -11,7 +11,7 @@ Feature-1: Brrowing and Renewal: Enable users to borrow books online and specify
 
 Feature-2: User Account: Allow users to create where they can manage their borrowing history, renew books, place holds , and create reading lists
 
-Feature-3 : Book Borrowing and Renewals:Online booking and reservation system for books. Ability for users to renew borrowed books online, if allowed.
+Feature-3 :Only available books will be shown and user can view books in tabular format or card format if desired.
 
 # Tecnology used: 
 <b> react, javascript, nodejs, mongodb, expressjs, firebase, html-css,tailwind.</b>
