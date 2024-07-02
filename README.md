@@ -8,6 +8,9 @@
 
 # Feauter:
 Feature-1: Through this project a user can add art and craft of his choice.
+
 Feature-2: A user can remove and update the added art and crafts as per his choice through this project.
-Feature-3: 
+
+Feature-3: Book Borrowing and Renewals:Online booking and reservation system for books. Ability for users to renew borrowed books online, if allowed.
+
 
