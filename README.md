@@ -1,5 +1,3 @@
-# WebsiteNme: LibraryGenesis
-# LiveURL: https://glittery-palmier-08a14a.netlify.app/
 
 # Overview
 LibraryGenesis
